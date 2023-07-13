@@ -36,7 +36,13 @@
       taskList.getAllTasks().forEach(task => {
         const listItem = document.createElement('li');
         listItem.classList.add('task-item');
-
+        if (task.priority === 'low') {
+            listItem.classList.add('low-priority');
+        } else if (task.priority === 'medium') {
+            listItem.classList.add('medium-priority');
+        } else if (task.priority === 'high') {
+            listItem.classList.add('high-priority');
+        }
         const taskName = document.createElement('span');
         taskName.classList.add('task-name');
         taskName.textContent = task.name;

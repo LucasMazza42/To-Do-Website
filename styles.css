@@ -71,6 +71,8 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     
   }
   .task-name { 
@@ -78,6 +80,18 @@ body {
   }
   .priority { 
     margin-left: 10px;
+    padding-right: 10px;
+  }
+  .low-priority {
+    background-color: #eef7ed;
+  }
+  
+  .medium-priority {
+    background-color: #defa05;
+  }
+  
+  .high-priority {
+    background-color: #f50808;
   }
   
   .task-item > button.remove-button {
