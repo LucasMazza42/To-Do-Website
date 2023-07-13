@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <div id="todo-container">
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Enter a task...">
+      <button type="submit">Add Task</button>
+    </form>
+    <ul id="todo-list"></ul>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    const taskList = new TaskList();
+    
+    function renderTasks() {
+      const todoList = document.getElementById('todo-list');
+      todoList.innerHTML = '';
+
+      taskList.getAllTasks().forEach(task => {
+        const listItem = document.createElement('li');
+        listItem.textContent = task.name;
+        listItem.id = `task-${task.id}`;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => {
+          removeTask(task.id);
+        });
+
+        listItem.appendChild(removeButton);
+        todoList.appendChild(listItem);
+      });
+    }
+
+    function addTask() {
+      const todoInput = document.getElementById('todo-input');
+      const taskName = todoInput.value.trim();
+      if (taskName) {
+        taskList.addTask(taskName);
+        renderTasks();
+        todoInput.value = '';
+      }
+    }
+
+    function removeTask(id) {
+      taskList.removeTask(id);
+      renderTasks();
+    }
+
+    const todoForm = document.getElementById('todo-form');
+    todoForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      addTask();
+    });
+
+    renderTasks();
+  </script>
+</body>
+</html>

@@ -1,21 +1,42 @@
-interface Product{
-    id: number, 
-    name: string, 
-    price: number
-}; 
-
-
-function getProduct(id): Product {
-    return { 
-        id: id, 
-        name: 'Awesome Gadget ${}',
-        price: 99.5
+interface Task {
+    id: number;
+    name: string;
+    completed: boolean;
+  }
+  
+  class TaskImpl implements Task {
+    constructor(public id: number, public name: string, public completed: boolean) {}
+  }
+  
+  class TaskList {
+    private tasks: Task[];
+  
+    constructor() {
+      this.tasks = [];
     }
-}
-
-const showProduct = (name: string, price: number) => {
-    console.log('The product ${product.Name} costs $${product.price)');
-}
-const product = getProduct(1)
-
-showProduct(product.price, product.name)
+  
+    addTask(name: string): void {
+      const id = this.tasks.length + 1;
+      const task = new TaskImpl(id, name, false);
+      this.tasks.push(task);
+    }
+  
+    removeTask(id: number): void {
+      this.tasks = this.tasks.filter(task => task.id !== id);
+    }
+  
+    markTaskComplete(id: number): void {
+        for (const task of this.tasks) {
+          if (task.id === id) {
+            task.completed = true;
+            break;
+          }
+        }
+      }
+      
+  
+    getAllTasks(): Task[] {
+      return this.tasks;
+    }
+  }
+  
