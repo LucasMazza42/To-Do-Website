@@ -32,3 +32,17 @@ var TaskList = /** @class */ (function () {
     };
     return TaskList;
 }());
+// Get the time header element
+var headerElement = document.getElementById('date-time-header');
+// Function to update the time
+function updateTime() {
+    var now = new Date();
+    var dateTimeString = now.toLocaleString();
+    if (headerElement) {
+        headerElement.textContent = dateTimeString;
+    }
+}
+// Update the time initially
+updateTime();
+// Update the time every second
+setInterval(updateTime, 1000);

@@ -33,10 +33,28 @@ interface Task {
           }
         }
       }
+   
       
   
     getAllTasks(): Task[] {
       return this.tasks;
     }
   }
+// Get the time header element
+const headerElement = document.getElementById('date-time-header');
+
+// Function to update the time
+function updateTime() {
+  const now = new Date();
+  const dateTimeString = now.toLocaleString();
+  if (headerElement) {
+    headerElement.textContent = dateTimeString;
+  }
+}
+
+// Update the time initially
+updateTime();
+
+// Update the time every second
+setInterval(updateTime, 1000);
   

@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1>To-Do List</h1>
+  <h2 id="date-time-header"></h2>
   <div id="todo-container">
     <form id="todo-form">
       <input type="text" id="todo-input" placeholder="Enter a task...">
@@ -29,7 +30,7 @@
         listItem.id = `task-${task.id}`;
 
         const removeButton = document.createElement('button');
-        removeButton.textContent = 'Remove';
+        removeButton.textContent = 'Done';
         removeButton.addEventListener('click', () => {
           removeTask(task.id);
         });
