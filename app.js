@@ -1,7 +1,8 @@
 var TaskImpl = /** @class */ (function () {
-    function TaskImpl(id, name, completed) {
+    function TaskImpl(id, name, priority, completed) {
         this.id = id;
         this.name = name;
+        this.priority = priority;
         this.completed = completed;
     }
     return TaskImpl;
@@ -10,9 +11,9 @@ var TaskList = /** @class */ (function () {
     function TaskList() {
         this.tasks = [];
     }
-    TaskList.prototype.addTask = function (name) {
+    TaskList.prototype.addTask = function (name, priority) {
         var id = this.tasks.length + 1;
-        var task = new TaskImpl(id, name, false);
+        var task = new TaskImpl(id, name, priority, false);
         this.tasks.push(task);
     };
     TaskList.prototype.removeTask = function (id) {

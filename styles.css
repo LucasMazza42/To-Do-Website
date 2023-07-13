@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -11,10 +9,11 @@ body {
     text-align: center;
     margin-top: 20px;
   }
-  h2 { 
+  
+  h2 {
     text-align: center;
-    
   }
+  
   #todo-container {
     max-width: 400px;
     margin: 20px auto;
@@ -59,15 +58,30 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+    padding: 10px 30px;
   }
+  
   
   .completed {
     text-decoration: line-through;
-    color: #aaa;
+    color: #00f83a;
   }
   
-  button.remove-button {
-    margin-left: 100px;
+  .task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    
+  }
+  .task-name { 
+    margin-right: 5px;
+  }
+  .priority { 
+    margin-left: 10px;
+  }
+  
+  .task-item > button.remove-button {
+    margin-left: 10px; /* Adjust this value to add more space */
     padding: 4px 8px;
     background-color: #f44336;
     color: white;
@@ -76,8 +90,8 @@ body {
     cursor: pointer;
   }
   
+  
   button.remove-button:hover {
     background-color: #d32f2f;
-    
   }
   

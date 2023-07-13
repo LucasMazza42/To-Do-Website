@@ -1,11 +1,12 @@
 interface Task {
     id: number;
     name: string;
+    priority: string; 
     completed: boolean;
   }
   
   class TaskImpl implements Task {
-    constructor(public id: number, public name: string, public completed: boolean) {}
+    constructor(public id: number, public name: string, public priority: string, public completed: boolean) {}
   }
   
   class TaskList {
@@ -15,9 +16,9 @@ interface Task {
       this.tasks = [];
     }
   
-    addTask(name: string): void {
+    addTask(name: string, priority: string): void {
       const id = this.tasks.length + 1;
-      const task = new TaskImpl(id, name, false);
+      const task = new TaskImpl(id, name, priority, false);
       this.tasks.push(task);
     }
   
@@ -57,4 +58,5 @@ updateTime();
 
 // Update the time every second
 setInterval(updateTime, 1000);
+ 
   

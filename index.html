@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* CSS styles */
+  </style>
 </head>
 <body>
   <h1>To-Do List</h1>
@@ -12,6 +16,11 @@
   <div id="todo-container">
     <form id="todo-form">
       <input type="text" id="todo-input" placeholder="Enter a task...">
+      <select id="priority-select">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
       <button type="submit">Add Task</button>
     </form>
     <ul id="todo-list"></ul>
@@ -19,22 +28,32 @@
   <script src="app.js"></script>
   <script>
     const taskList = new TaskList();
-    
+
     function renderTasks() {
       const todoList = document.getElementById('todo-list');
       todoList.innerHTML = '';
 
       taskList.getAllTasks().forEach(task => {
         const listItem = document.createElement('li');
-        listItem.textContent = task.name;
-        listItem.id = `task-${task.id}`;
+        listItem.classList.add('task-item');
+
+        const taskName = document.createElement('span');
+        taskName.classList.add('task-name');
+        taskName.textContent = task.name;
+        
+        const prioritySpan = document.createElement('span');
+        prioritySpan.classList.add('priority');
+        prioritySpan.textContent = `Priority: ${task.priority}`;
 
         const removeButton = document.createElement('button');
-        removeButton.textContent = 'Done';
+        removeButton.innerHTML = '<i class="fas fa-times"></i>';
+
         removeButton.addEventListener('click', () => {
           removeTask(task.id);
         });
 
+        listItem.appendChild(taskName);
+        listItem.appendChild(prioritySpan);
         listItem.appendChild(removeButton);
         todoList.appendChild(listItem);
       });
@@ -42,9 +61,11 @@
 
     function addTask() {
       const todoInput = document.getElementById('todo-input');
+      const prioritySelect = document.getElementById('priority-select');
       const taskName = todoInput.value.trim();
+      const taskPriority = prioritySelect.value;
       if (taskName) {
-        taskList.addTask(taskName);
+        taskList.addTask(taskName, taskPriority);
         renderTasks();
         todoInput.value = '';
       }
