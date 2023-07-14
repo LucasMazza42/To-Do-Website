@@ -32,6 +32,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(18, 57, 187, 0.1);
+    background-color: #fafafa;
+
   }
   
   form {
@@ -94,11 +96,11 @@ body {
     padding-right: 10px;
   }
   .low-priority {
-    background-color: #eef7ed;
+    background-color: #d1fdcc;
   }
   
   .medium-priority {
-    background-color: #defa05;
+    background-color: #facd05;
   }
   
   .high-priority {
