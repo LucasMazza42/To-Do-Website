@@ -3,6 +3,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('/Users/lucasmazza/Desktop/BackgroundLandScape.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   h1 {
