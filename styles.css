@@ -1,12 +1,19 @@
 /* Global Styles */
+html { 
+    background-image: url('https://www.pexels.com/photo/1261728/download/');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('/Users/lucasmazza/Desktop/BackgroundLandScape.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
   }
   
   h1 {
@@ -24,7 +31,7 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(18, 57, 187, 0.1);
   }
   
   form {
