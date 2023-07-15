@@ -102,4 +102,4 @@ function startTimer() {
 if (startButton) {
   startButton.addEventListener('click', startTimer);
 }
-//github
+//githubs
