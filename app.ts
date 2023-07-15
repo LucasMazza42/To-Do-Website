@@ -93,7 +93,7 @@ function startTimer() {
       }
     } else {
       clearInterval(countdownInterval);
-      timerLabel.textContent = "Countdown finished!";
+      timerLabel.textContent = "Focus time over!";
     }
   }, 1000);
 }

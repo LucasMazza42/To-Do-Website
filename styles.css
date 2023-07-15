@@ -130,4 +130,7 @@ body {
   button.remove-button:hover {
     background-color: #d32f2f;
   }
+  h2 { 
+    color: white; 
+  }
   
