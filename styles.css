@@ -5,7 +5,9 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    color: #fafafa;
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

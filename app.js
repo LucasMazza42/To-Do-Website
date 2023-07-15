@@ -48,6 +48,7 @@ setInterval(updateTime, 1000);
 var timerLabel = document.getElementById('clockTimer');
 var timeInput = document.getElementById('time-input');
 var startButton = document.getElementById('start-button');
+var endButton = document.getElementById('end-button');
 var countdownTime = 0; // Initial countdown time
 var countdownInterval; // Variable to store the interval
 // Function to update the time
@@ -89,7 +90,15 @@ function formatTime(time) {
     var seconds = time % 60;
     return "".concat(minutes, ":").concat(seconds);
 }
+function resetTime(time) {
+    countdownTime = 0;
+    timerLabel.textContent = "Focus time ended!";
+    return countdownTime;
+}
 // Add event listener to the start button
 if (startButton) {
     startButton.addEventListener('click', startTimer);
+}
+if (endButton) {
+    endButton.addEventListener('click', resetTime);
 }
