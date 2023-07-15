@@ -33,12 +33,10 @@ var TaskList = /** @class */ (function () {
     };
     return TaskList;
 }());
-// Get the time header element
-var headerElement = document.getElementById('date-time-header');
-// Function to update the time
 function updateTime() {
     var now = new Date();
     var dateTimeString = now.toLocaleString();
+    var headerElement = document.getElementById('date-time-header');
     if (headerElement) {
         headerElement.textContent = dateTimeString;
     }
@@ -47,38 +45,45 @@ function updateTime() {
 updateTime();
 // Update the time every second
 setInterval(updateTime, 1000);
-//test update
 var timerLabel = document.getElementById('clockTimer');
 var timeInput = document.getElementById('time-input');
 var startButton = document.getElementById('start-button');
-var countdowntime = 0; // Initial countdown time
+var countdownTime = 0; // Initial countdown time
+var countdownInterval; // Variable to store the interval
+// Function to update the time
+function updateTimer() {
+    var now = new Date();
+    var dateTimeString = now.toLocaleString();
+    var headerElement = document.getElementById('date-time-header');
+    if (headerElement) {
+        headerElement.textContent = dateTimeString;
+    }
+}
+// Function to start the countdown timer
 function startTimer() {
     // Parse the entered time from the input
     var enteredTime = parseInt(timeInput.value, 10);
-    // Validate the entered time
-    if (isNaN(enteredTime) || enteredTime <= 0) {
-        alert('Please enter a valid time in seconds.');
-        return;
-    }
     // Set the countdown time to the entered value
-    countdowntime = enteredTime;
+    countdownTime = enteredTime;
     // Update the timer label initially
     if (timerLabel) {
-        timerLabel.textContent = countdowntime.toString();
+        timerLabel.textContent = countdownTime.toString();
     }
-}
-function countstartTimer() {
-    setInterval(function () {
-        if (countdowntime > 1) {
-            countdowntime--;
+    // Start the countdown
+    countdownInterval = setInterval(function () {
+        if (countdownTime > 1) {
+            countdownTime--;
+            if (timerLabel) {
+                timerLabel.textContent = countdownTime.toString();
+            }
         }
         else {
-            countdowntime = 10;
-        }
-        if (timerLabel) {
-            timerLabel.textContent = countdowntime.toString();
+            clearInterval(countdownInterval);
+            timerLabel.textContent = "Countdown finished!";
         }
     }, 1000);
 }
-// Start the timer
-startTimer();
+// Add event listener to the start button
+if (startButton) {
+    startButton.addEventListener('click', startTimer);
+}
