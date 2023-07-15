@@ -73,23 +73,23 @@ function updateTimer() {
 
 // Function to start the countdown timer
 function startTimer() {
-  // Parse the entered time from the input
+  // Parse the entered time from the input (in minutes)
   const enteredTime = parseInt((timeInput as HTMLInputElement).value, 10);
-
-  // Set the countdown time to the entered value
-  countdownTime = enteredTime;
+  
+  // Convert the entered time to seconds
+  countdownTime = enteredTime * 60;
 
   // Update the timer label initially
   if (timerLabel) {
-    timerLabel.textContent = countdownTime.toString();
+    timerLabel.textContent = formatTime(countdownTime);
   }
 
   // Start the countdown
   countdownInterval = setInterval(() => {
-    if (countdownTime > 1) {
+    if (countdownTime > 0) {
       countdownTime--;
       if (timerLabel) {
-        timerLabel.textContent = countdownTime.toString();
+        timerLabel.textContent = formatTime(countdownTime);
       }
     } else {
       clearInterval(countdownInterval);
@@ -98,8 +98,16 @@ function startTimer() {
   }, 1000);
 }
 
+// Function to format the time in MM:SS format
+function formatTime(time: number): string {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  return `${minutes}:${seconds}`;
+}
+
+
+
 // Add event listener to the start button
 if (startButton) {
   startButton.addEventListener('click', startTimer);
 }
-//githubs

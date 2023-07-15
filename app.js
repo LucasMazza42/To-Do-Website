@@ -61,27 +61,33 @@ function updateTimer() {
 }
 // Function to start the countdown timer
 function startTimer() {
-    // Parse the entered time from the input
+    // Parse the entered time from the input (in minutes)
     var enteredTime = parseInt(timeInput.value, 10);
-    // Set the countdown time to the entered value
-    countdownTime = enteredTime;
+    // Convert the entered time to seconds
+    countdownTime = enteredTime * 60;
     // Update the timer label initially
     if (timerLabel) {
-        timerLabel.textContent = countdownTime.toString();
+        timerLabel.textContent = formatTime(countdownTime);
     }
     // Start the countdown
     countdownInterval = setInterval(function () {
-        if (countdownTime > 1) {
+        if (countdownTime > 0) {
             countdownTime--;
             if (timerLabel) {
-                timerLabel.textContent = countdownTime.toString();
+                timerLabel.textContent = formatTime(countdownTime);
             }
         }
         else {
             clearInterval(countdownInterval);
-            timerLabel.textContent = "Countdown finished!";
+            timerLabel.textContent = "Focus time over!";
         }
     }, 1000);
+}
+// Function to format the time in MM:SS format
+function formatTime(time) {
+    var minutes = Math.floor(time / 60);
+    var seconds = time % 60;
+    return "".concat(minutes, ":").concat(seconds);
 }
 // Add event listener to the start button
 if (startButton) {
