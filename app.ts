@@ -4,6 +4,7 @@ interface Task {
     priority: string; 
     completed: boolean;
   }
+
   
   class TaskImpl implements Task {
     constructor(public id: number, public name: string, public priority: string, public completed: boolean) {}
@@ -59,4 +60,43 @@ updateTime();
 // Update the time every second
 setInterval(updateTime, 1000);
  //test update
+
+ const timerLabel = document.getElementById('clockTimer');
+ const timeInput = document.getElementById('time-input')
+ const startButton = document.getElementById('start-button')
+ let countdowntime: number = 0; // Initial countdown time
+
+function startTimer() {
+  // Parse the entered time from the input
+  const enteredTime = parseInt((timeInput as HTMLInputElement).value, 10);
   
+  // Validate the entered time
+  if (isNaN(enteredTime) || enteredTime <= 0) {
+    alert('Please enter a valid time in seconds.');
+    return;
+  }
+  
+  // Set the countdown time to the entered value
+  countdowntime = enteredTime;
+
+  // Update the timer label initially
+  if (timerLabel) {
+    timerLabel.textContent = countdowntime.toString();
+  }
+}
+
+ function countstartTimer() {
+   setInterval(() => {
+     if (countdowntime > 1) {
+       countdowntime--;
+     } else {
+       countdowntime = 10;
+     }
+     if (timerLabel) {
+       timerLabel.textContent = countdowntime.toString();
+     }
+   }, 1000);
+ }
+ 
+ // Start the timer
+ startTimer();
