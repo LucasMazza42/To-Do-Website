@@ -14,6 +14,7 @@ Attempting to learn the basics of javascript / typescript / css / html
 - Add a timer for the amount of time you want to focus
 
 # Current state: 
+<img width="879" alt="Screenshot 2023-07-15 at 1 55 20 PM" src="https://github.com/LucasMazza42/To-Do-Website/assets/47802441/51ef4c17-ff6e-4bbb-9d1c-7d4bfff6325c">
 
 - I want this to act as a productivity tool so that I will have a Pomodoro timer included.
 
