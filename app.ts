@@ -104,9 +104,6 @@ function formatTime(time: number): string {
   const seconds = time % 60;
   return `${minutes}:${seconds}`;
 }
-
-
-
 // Add event listener to the start button
 if (startButton) {
   startButton.addEventListener('click', startTimer);
