@@ -144,7 +144,16 @@ body {
   }
 #timer-container { 
   text-align: center;
-  color:rgb(255, 255, 255)
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(18, 57, 187, 0.1);
+  background-color: #ffffff;
 }
-  
+nav {
+  color:#ffffff;
+  font-size: 20px; 
+}
   
