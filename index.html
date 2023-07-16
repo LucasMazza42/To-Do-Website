@@ -11,21 +11,17 @@
   </style>
 </head>
 <body>
-  <header>
-    <!-- Add your logo, site title, or other header content here -->
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <!-- Add more menu items as needed -->
-      </ul>
-    </nav>
-  </header>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Menu</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">Account</a>
+      <a href="#">About</a>
+      <a href="#">Settings</a>
+    </div>
+  </div>
   <h1>To-Do List</h1>
   <h2 id="date-time-header"></h2>
   <div id="timer-container">
-    
     <input type="number" id="time-input" placeholder="Enter time in minutes" />
     <button id="start-button">Start Timer</button>
     <button id = "end-button">End Timer</button>
